@@ -96,14 +96,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cars.setPrice(price);
         cars.setQuantity(quantity);
 
-        Call<Cars> call = CarService.carService.addCar(cars);
-        Log.d("Hello", "addCar: "+name+" " + price  + " " +quantity);
 
-        call.enqueue(new Callback<Cars>() {
+        Log.d("Hello", "addCar: "+name+" " + price  + " " +quantity);
+        CarService.carService.addCar(cars).enqueue(new Callback<List<Cars>>() {
             @Override
-            public void onResponse(Call<Cars> call, Response<Cars> response) {
+            public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()){
-                    Cars cars1 = response.body();
+                    List<Cars> carsList = response.body();
                     Toast.makeText(MainActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
                 } else {
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<Cars> call, Throwable t) {
+            public void onFailure(Call<List<Cars>> call, Throwable t) {
                 Log.e("MainActivity", "Request failed: " + t.getMessage());
             }
         });
@@ -125,12 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cars.setPrice(price);
         cars.setQuantity(quantity);
 
-        Call<Cars> call = CarService.carService.updateCar(id,cars);
-        call.enqueue(new Callback<Cars>() {
+        Call<List<Cars>> call = CarService.carService.updateCar(id,cars);
+        call.enqueue(new Callback<List<Cars>>() {
             @Override
-            public void onResponse(Call<Cars> call, Response<Cars> response) {
+            public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()){
-                    Cars cars1 = response.body();
+                    List<Cars> cars1 = response.body();
                     Toast.makeText(MainActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
                 } else {
@@ -140,17 +139,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<Cars> call, Throwable t) {
+            public void onFailure(Call<List<Cars>> call, Throwable t) {
                 Log.d("MAIN", "Respone Fail" + t.getMessage());
             }
         });
     }
 
     private void deleteCars(String id){
-        Call<Void> call = CarService.carService.deleteCars(id);
-        call.enqueue(new Callback<Void>() {
+        Call<List<Cars>> call = CarService.carService.deleteCars(id);
+        call.enqueue(new Callback<List<Cars>>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
@@ -161,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<List<Cars>> call, Throwable t) {
                 Log.e("API_ERROR", "Error: " + t.getMessage());
             }
         });

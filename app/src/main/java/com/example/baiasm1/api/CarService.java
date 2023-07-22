@@ -19,7 +19,8 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface CarService {
-
+    //192.168.1.91 nha
+    //10.24.48.8 trg
     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
     CarService carService = new Retrofit.Builder()
             .baseUrl("http://192.168.1.91:8080/")
@@ -30,11 +31,11 @@ public interface CarService {
     Call<List<Cars>> getCar();
 
     @POST("addCars")
-    Call<Cars> addCar(@Body Cars cars);
+    Call<List<Cars>> addCar(@Body Cars cars);
 
     @PUT("cars/{id}")
-    Call<Cars> updateCar(@Path("id") String id, @Body Cars cars);
+    Call<List<Cars>> updateCar(@Path("id") String id, @Body Cars cars);
 
     @DELETE("cars/{id}")
-    Call<Void> deleteCars(@Path("id") String id);
+    Call<List<Cars>> deleteCars(@Path("id") String id);
 }
