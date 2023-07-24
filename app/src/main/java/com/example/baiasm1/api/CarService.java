@@ -23,7 +23,7 @@ public interface CarService {
     //10.24.48.8 trg
     Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
     CarService carService = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.91:8080/")
+            .baseUrl("http://10.24.24.12:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(CarService.class);

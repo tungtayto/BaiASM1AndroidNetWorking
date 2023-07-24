@@ -81,13 +81,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailure(Call<List<Cars>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("gggggg", "onFailure: "+t.getMessage());
             }
         });
     }
 
     private void showCarList(List<Cars> carsList) {
-        carsAdapter = new CarsAdapter(carsList, this);
-        rcvListCar.setAdapter(carsAdapter);
+        if (carsList != null){
+            carsAdapter = new CarsAdapter(carsList, this);
+            rcvListCar.setAdapter(carsAdapter);
+        }
     }
 
     private void addCar(String name, int price, int quantity) {
