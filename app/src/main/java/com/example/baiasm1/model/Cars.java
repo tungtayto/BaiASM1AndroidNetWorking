@@ -5,21 +5,33 @@ import com.google.gson.annotations.SerializedName;
 public class Cars {
     @SerializedName("_id")
     private String id;
-    @SerializedName("name")
-    private String name;
-    @SerializedName("price")
-    private int price;
-    @SerializedName("quantity")
-    private int quantity;
-
-    public Cars(String id, String name, int price, int quantity) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-    }
+    @SerializedName("nameCar")
+    private String nameCar;
+    @SerializedName("colorCar")
+    private String colorCar;
+    @SerializedName("yearCar")
+    private int yearCar;
+    @SerializedName("engineTypeCar")
+    private String engineTypeCar; // xang diesel dien
+    @SerializedName("priceCar")
+    private int priceCar;
+    @SerializedName("quantityCar")
+    private int quantityCar;
+    @SerializedName("imgCar")
+    private String imgCar;
 
     public Cars() {
+    }
+
+    public Cars(String id, String nameCar, String colorCar, int yearCar, String engineTypeCar, int priceCar, int quantityCar, String imgCar) {
+        this.id = id;
+        this.nameCar = nameCar;
+        this.colorCar = colorCar;
+        this.yearCar = yearCar;
+        this.engineTypeCar = engineTypeCar;
+        this.priceCar = priceCar;
+        this.quantityCar = quantityCar;
+        this.imgCar = imgCar;
     }
 
     public String getId() {
@@ -30,27 +42,59 @@ public class Cars {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameCar() {
+        return nameCar;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCar(String nameCar) {
+        this.nameCar = nameCar;
     }
 
-    public int getPrice() {
-        return price;
+    public String getColorCar() {
+        return colorCar;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setColorCar(String colorCar) {
+        this.colorCar = colorCar;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getYearCar() {
+        return yearCar;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setYearCar(int yearCar) {
+        this.yearCar = yearCar;
+    }
+
+    public String getEngineTypeCar() {
+        return engineTypeCar;
+    }
+
+    public void setEngineTypeCar(String engineTypeCar) {
+        this.engineTypeCar = engineTypeCar;
+    }
+
+    public int getPriceCar() {
+        return priceCar;
+    }
+
+    public void setPriceCar(int priceCar) {
+        this.priceCar = priceCar;
+    }
+
+    public int getQuantityCar() {
+        return quantityCar;
+    }
+
+    public void setQuantityCar(int quantityCar) {
+        this.quantityCar = quantityCar;
+    }
+
+    public String getImgCar() {
+        return imgCar;
+    }
+
+    public void setImgCar(String imgCar) {
+        this.imgCar = imgCar;
     }
 }

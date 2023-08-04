@@ -34,8 +34,8 @@ app.get('/listCar', async function (req, res) {
 // Định nghĩa API thêm sản phẩm
 app.post('/addCars', async (req, res) => {
   try {
-    const { name, price, quantity } = req.body;
-    const car = new CarModel({ name, price, quantity });
+    const { nameCar, colorCar, yearCar, engineTypeCar, priceCar, quantityCar, imgCar } = req.body;
+    const car = new CarModel({ nameCar, colorCar, yearCar, engineTypeCar, priceCar, quantityCar, imgCar });
     await car.save();
     const carList = await CarModel.find().lean();
     res.json(carList);
@@ -49,11 +49,11 @@ app.post('/addCars', async (req, res) => {
 app.put('/cars/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, price, quantity } = req.body;
+    const { nameCar, colorCar, yearCar, engineTypeCar, priceCar, quantityCar, imgCar } = req.body;
     console.log("Id Can Update" + id);
     const car = await CarModel.findByIdAndUpdate(
       id,
-      { name, price, quantity },
+      { nameCar, colorCar, yearCar, engineTypeCar, priceCar, quantityCar, imgCar },
       { new: true }
     );
     const carList = await CarModel.find().lean();

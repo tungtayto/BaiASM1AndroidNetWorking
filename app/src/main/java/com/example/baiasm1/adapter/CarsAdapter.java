@@ -40,9 +40,12 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         if (cars == null){
             return;
         }
-        holder.tvNameCar.setText(cars.getName());
-        holder.tvPriceCar.setText(cars.getPrice()+"");
-        holder.tvQuantityCar.setText(cars.getQuantity()+"");
+        holder.tvNameCar.setText(cars.getNameCar());
+        holder.tvColorCar.setText(cars.getColorCar());
+        holder.tvYearCar.setText(cars.getYearCar()+"");
+        holder.tvEngineTypeCar.setText(cars.getEngineTypeCar()+"");
+        holder.tvPriceCar.setText(cars.getPriceCar()+"");
+        holder.tvQuantityCar.setText(cars.getQuantityCar()+"");
 
         holder.imgEditCar.setOnClickListener(v->{
             callback.editCar(cars);
@@ -63,7 +66,9 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         private TextView tvQuantityCar;
         private ImageView imgEditCar;
         private ImageView imgDeleteCar;
-
+        private TextView tvColorCar;
+        private TextView tvYearCar;
+        private TextView tvEngineTypeCar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameCar = (TextView) itemView.findViewById(R.id.tvNameCar);
@@ -71,6 +76,9 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
             tvQuantityCar = (TextView) itemView.findViewById(R.id.tvQuantityCar);
             imgEditCar = (ImageView) itemView.findViewById(R.id.img_editCar);
             imgDeleteCar = (ImageView) itemView.findViewById(R.id.imgDeleteCar);
+            tvColorCar = (TextView) itemView.findViewById(R.id.tvColorCar);
+            tvYearCar = (TextView) itemView.findViewById(R.id.tvYearCar);
+            tvEngineTypeCar = (TextView) itemView.findViewById(R.id.tvEngineTypeCar);
         }
     }
 
