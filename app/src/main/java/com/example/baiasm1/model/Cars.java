@@ -17,7 +17,7 @@ public class Cars {
     private int priceCar;
     @SerializedName("quantityCar")
     private int quantityCar;
-    @SerializedName("imgCar")
+
     private String imgCar;
 
     public Cars() {

@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffff"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,8 +26,6 @@
                 android:id="@+id/ed_nameCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:hint="Name" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -39,8 +38,6 @@
                 android:id="@+id/ed_colorCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:editable="false"
                 android:hint="Color" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -54,8 +51,6 @@
                 android:id="@+id/ed_yearCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:hint="Year" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,8 +63,6 @@
                 android:id="@+id/ed_engineTypeCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:editable="false"
                 android:hint="Engine Type" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,8 +76,6 @@
                 android:id="@+id/ed_priceCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:hint="Price" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,8 +88,6 @@
                 android:id="@+id/ed_quantityCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:hint="Quantity" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,8 +100,6 @@
                 android:id="@+id/ed_imgCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:hint="Image" />
         </com.google.android.material.textfield.TextInputLayout>
 

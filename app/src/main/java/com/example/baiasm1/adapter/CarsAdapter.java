@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.baiasm1.R;
 import com.example.baiasm1.model.Cars;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
     private List<Cars> list;
     private Callback callback;
     private int idSeletedCar = -1;
+    private Picasso picasso = Picasso.get();
 
     public CarsAdapter(List<Cars> list, Callback callback) {
         this.list = list;
@@ -40,19 +42,24 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         if (cars == null){
             return;
         }
+        Picasso.get().load(cars.getImgCar()).into(holder.imgCar);
         holder.tvNameCar.setText(cars.getNameCar());
         holder.tvColorCar.setText(cars.getColorCar());
         holder.tvYearCar.setText(cars.getYearCar()+"");
         holder.tvEngineTypeCar.setText(cars.getEngineTypeCar()+"");
         holder.tvPriceCar.setText(cars.getPriceCar()+"");
         holder.tvQuantityCar.setText(cars.getQuantityCar()+"");
+//        holder.linkimg.setText(cars.getImgCar());
 
         holder.imgEditCar.setOnClickListener(v->{
             callback.editCar(cars);
         });
+
         holder.imgDeleteCar.setOnClickListener(v->{
             callback.deleteCar(cars);
         });
+//        picasso.load(cars.getImgCar()).into(holder.imgCar);
+
     }
 
     @Override
@@ -69,6 +76,9 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         private TextView tvColorCar;
         private TextView tvYearCar;
         private TextView tvEngineTypeCar;
+        private ImageView imgCar;
+        private TextView linkimg;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameCar = (TextView) itemView.findViewById(R.id.tvNameCar);
@@ -79,6 +89,8 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
             tvColorCar = (TextView) itemView.findViewById(R.id.tvColorCar);
             tvYearCar = (TextView) itemView.findViewById(R.id.tvYearCar);
             tvEngineTypeCar = (TextView) itemView.findViewById(R.id.tvEngineTypeCar);
+            imgCar = (ImageView) itemView.findViewById(R.id.img_Car);
+            linkimg = (TextView) itemView.findViewById(R.id.linkimg);
         }
     }
 
