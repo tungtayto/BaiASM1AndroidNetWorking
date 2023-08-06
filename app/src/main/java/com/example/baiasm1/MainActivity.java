@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvCancelAddCsrs;
     private TextView tvEditCars;
     private TextView tvCancelEditCsrs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()) {
                     List<Cars> carsList = response.body();
-                    Toast.makeText(MainActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
+                    Toast.makeText(MainActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.e("MainActivity", "Response unsuccessful: " + response.message());
                     Toast.makeText(MainActivity.this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
@@ -146,8 +145,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()) {
                     List<Cars> cars1 = response.body();
-                    Toast.makeText(MainActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
+                    Toast.makeText(MainActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d("MAIN", "Respone Fail" + response.message());
                     Toast.makeText(MainActivity.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
@@ -168,8 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call<List<Cars>> call, Response<List<Cars>> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(MainActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                     getListCars();
+                    Toast.makeText(MainActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
                     Log.e("API_ERROR", "Error: " + response.message());

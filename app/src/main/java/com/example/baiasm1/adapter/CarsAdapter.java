@@ -20,7 +20,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
 
     private List<Cars> list;
     private Callback callback;
-    private int idSeletedCar = -1;
     private Picasso picasso = Picasso.get();
 
     public CarsAdapter(List<Cars> list, Callback callback) {
@@ -42,7 +41,7 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         if (cars == null){
             return;
         }
-        Picasso.get().load(cars.getImgCar()).into(holder.imgCar);
+        picasso.load(cars.getImgCar()).into(holder.imgCar);
         holder.tvNameCar.setText(cars.getNameCar());
         holder.tvColorCar.setText(cars.getColorCar());
         holder.tvYearCar.setText(cars.getYearCar()+"");
@@ -58,7 +57,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder>{
         holder.imgDeleteCar.setOnClickListener(v->{
             callback.deleteCar(cars);
         });
-//        picasso.load(cars.getImgCar()).into(holder.imgCar);
 
     }
 
